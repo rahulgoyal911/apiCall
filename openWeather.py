@@ -45,6 +45,6 @@ for x in range(0,count):
     city_coord_lon = response.json().get("city").get('coord').get('lon')
     city_coord_country = response.json().get("city").get('country')
 
-    print(temp)
+    print(city_name)
 
 # print(url)
