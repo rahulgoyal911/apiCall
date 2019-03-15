@@ -1,6 +1,8 @@
 import requests
 key = "4dddafc191664c47ab1140145191203"
-loc = str(30.723)+","+str(76.789)
+lat = 30.723
+lon = 76.789
+loc = str(lat)+","+str(lon)
 url = "https://api.worldweatheronline.com/premium/v1/weather.ashx"+"?q="+loc+"&key="+key+"&format=json"
 
 response = requests.get(url)
@@ -28,8 +30,8 @@ cloudcover = response.json().get("data").get("current_condition")[0].get("cloudc
 FeelsLikeC = response.json().get("data").get("current_condition")[0].get("FeelsLikeC")
 FeelsLikeF = response.json().get("data").get("current_condition")[0].get("FeelsLikeF")
 uvIndex = response.json().get("data").get("current_condition")[0].get("uvIndex")
-
-for day in range(0,14):
+# 0,14
+for day in range(0,1):
     date = response.json().get("data").get("weather")[day].get("date")
     sunrise = response.json().get("data").get("weather")[day].get("astronomy")[0].get("sunrise")
     sunset = response.json().get("data").get("weather")[day].get("astronomy")[0].get("sunset")
@@ -44,8 +46,8 @@ for day in range(0,14):
     totalSnow_cm = response.json().get("data").get("weather")[day].get("totalSnow_cm")
     sunHour = response.json().get("data").get("weather")[day].get("sunHour")
     uvIndex = response.json().get("data").get("weather")[day].get("uvIndex")
-
-    for hour in range (0,8):
+# 0,8
+    for hour in range (0,1):
         time = response.json().get("data").get("weather")[day].get("hourly")[hour].get("time")
         tempC = response.json().get("data").get("weather")[day].get("hourly")[hour].get("tempC")
         tempF = response.json().get("data").get("weather")[day].get("hourly")[hour].get("tempF")
@@ -83,9 +85,9 @@ for day in range(0,14):
         chanceofthunder = response.json().get("data").get("weather")[day].get("hourly")[hour].get("chanceofthunder")
         uvIndex = response.json().get("data").get("weather")[day].get("hourly")[hour].get("uvIndex")
 
-
+# 0,12
 # climate averages
-for month in range(0,12):
+for month in range(0,1):
     index = response.json().get("data").get("ClimateAverages")[0].get("month")[month].get("index")
     name = response.json().get("data").get("ClimateAverages")[0].get("month")[month].get("name")
     avgMinTemp = response.json().get("data").get("ClimateAverages")[0].get("month")[month].get("avgMinTemp")
@@ -94,3 +96,74 @@ for month in range(0,12):
     absMaxTemp_F = response.json().get("data").get("ClimateAverages")[0].get("month")[month].get("absMaxTemp_F")
     avgDailyRainfall = response.json().get("data").get("ClimateAverages")[0].get("month")[month].get("avgDailyRainfall")
 # print(url)
+
+print(types)
+print(querys)
+print(observation_time)
+print(temp_C)
+print(temp_F)
+print(weatherCode)
+print(weatherIconUrl)
+print(weatherDesc)
+print(windSpeedMiles)
+print(windSpeedKmph)
+print(winddirDegree)
+print(winddir16Point)
+print(precipMM)
+print(humidity)
+print(visibility)
+print(pressure)
+print(cloudcover)
+print(FeelsLikeC)
+print(FeelsLikeF)
+print(uvIndex)
+print(date)
+print(sunrise)
+print(sunset)
+print(moonrise)
+print(moonset)
+print(moon_phase)
+print(moon_illumination)
+print(maxtempC)
+print(maxtempF)
+print(mintempC)
+print(mintempF)
+print(totalSnow_cm)
+print(sunHour)
+print(uvIndex)
+print(time)
+print(tempC)
+print(tempF)
+print(windspeedMiles)
+print(windspeedkmph)
+print(winddirDegree)
+print(weatherCode)
+print(winddir16Point)
+print(weatherIconUrl)
+print(weatherDesc)
+print(precipMM)
+print(humidity)
+print(visibility)
+print(pressure)
+print(cloudcover)
+print(HeatIndexC)
+print(HeatIndexF)
+print(DewPointC)
+print(DewPointF)
+print(WindChillC)
+print(WindChillF)
+print(WindGustMiles)
+print(WindGustKmph)
+print(FeelsLikeC)
+print(FeelsLikeF)
+print(chanceofrain)
+print(chanceofremdry)
+print(chanceofwindy)
+print(chanceofovercast)
+print(chanceofsunshine)
+print(chanceoffrost)
+print(chanceofhightemp)
+print(chanceoffog)
+print(chanceofsnow)
+print(chanceofthunder)
+print(uvIndex)

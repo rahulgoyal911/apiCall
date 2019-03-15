@@ -31,7 +31,7 @@ minTemp = response.json().get('minTemp')
 unitTemp = response.json().get('unitTemp')
 sunset = response.json().get('sunset')
 relativeHumidity = response.json().get('relativeHumidity')
-forecastShortText = response.json().get('forecaseShortText')
+forecastShortText = response.json().get('forecastShortText')
 
 
 

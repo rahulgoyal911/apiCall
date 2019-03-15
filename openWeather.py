@@ -1,50 +1,63 @@
 import requests
 key = "29d82cbfe71ac2746d1af20dffd66b23"
-url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID="+key;
+lat = str(30.723)
+lon = str(76.789)
+
+url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID="+key
+url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&APPID="+key
 
 response = requests.get(url)
-# response = response.content.decode("utf-8")
-# print(response)
 
-cod = response.json().get("cod")
-message = response.json().get("message")
-count = response.json().get("cnt")
+id1 = response.json().get("weather")[0].get("id")
+main = response.json().get("weather")[0].get("main")
+description = response.json().get("weather")[0].get("description")
+icon = response.json().get("weather")[0].get("icon")
 
-# print(count)
-for x in range(0,count):
-    dt = response.json().get("list")[x].get("dt")
+icon = response.json().get("main").get("temp")
+pressure = response.json().get("main").get("pressure")
+humidity = response.json().get("main").get("humidity")
+temp_min = response.json().get("main").get("temp_min")
+temp_max = response.json().get("main").get("temp_max")
 
-    temp = response.json().get("list")[x].get('main').get("temp")
-    temp_min = response.json().get("list")[x].get('main').get("temp_min")
-    temp_max = response.json().get("list")[x].get('main').get("temp_max")
-    pressure = response.json().get("list")[x].get('main').get("pressure")
-    sea_level = response.json().get("list")[x].get('main').get("sea_level")
-    grnd_level = response.json().get("list")[x].get('main').get("grnd_level")
-    humidity = response.json().get("list")[x].get('main').get("humidity")
-    temp_kf = response.json().get("list")[x].get('main').get("temp_kf")
+visibility = response.json().get("visibility")
+speed = response.json().get("wind").get("speed")
+deg = response.json().get("wind").get("deg")
 
-    weather_id = response.json().get("list")[x].get('weather')[0].get("id")
-    weather_main = response.json().get("list")[x].get('weather')[0].get("main")
-    weather_desc = response.json().get("list")[x].get('weather')[0].get("description")
-    weather_icon = response.json().get("list")[x].get('weather')[0].get("icon")
+clouds = response.json().get("clouds").get("all")
+dt = response.json().get("dt")
+typ = response.json().get("sys").get("type")
+id = response.json().get("sys").get("id")
+message = response.json().get("sys").get("message")
+country = response.json().get("sys").get("country")
+sunrise = response.json().get("sys").get("sunrise")
+sunset = response.json().get("sys").get("sunset")
+idn = response.json().get("id")
+name = response.json().get("name")
 
-    clouds_all = response.json().get("list")[x].get('clouds').get("all")
+print(id1)
+print(main)
+print(description)
+print(icon)
 
-    wind_speed = response.json().get("list")[x].get('wind').get("speed")
-    wid_deg = response.json().get("list")[x].get('wind').get("deg")
+print(icon)
+print(pressure)
+print(humidity)
+print(temp_min)
+print(temp_max)
 
-    snow = response.json().get("list")[x].get('snow')
+print(visibility)
+print(speed)
+print(deg)
 
-    sys_pod = response.json().get("list")[x].get('sys').get('pod')
-
-    dt_text = response.json().get("list")[x].get('dt_text')
-
-    city_id = response.json().get("city").get('id')
-    city_name = response.json().get("city").get('name')
-    city_coord_lat = response.json().get("city").get('coord').get('lat')
-    city_coord_lon = response.json().get("city").get('coord').get('lon')
-    city_coord_country = response.json().get("city").get('country')
-
-    print(city_name)
+print(clouds)
+print(dt)
+print(typ)
+print(id)
+print(message)
+print(country)
+print(sunrise)
+print(sunset)
+print(idn)
+print(name)
 
 # print(url)
