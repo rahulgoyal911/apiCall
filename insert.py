@@ -376,19 +376,17 @@ def worldWeather(arg):
 # worldWeather till here
 
 # main
-metgis(5)
-openWeather(5)
-worldWeather(5)
-# t1 = threading.Thread(target=metgis, args=(1,)) 
-# t2 = threading.Thread(target=openWeather, args=(1,)) 
-# t3 = threading.Thread(target=worldWeather, args=(1,)) 
 
-# t1.start() 
-# t2.start() 
-# t3.start()
+t1 = threading.Thread(target=metgis, args=(1,)) 
+t2 = threading.Thread(target=openWeather, args=(1,)) 
+t3 = threading.Thread(target=worldWeather, args=(1,)) 
 
-# t1.join()
-# t2.join()
-# t3.join()
+t1.start() 
+t2.start() 
+t3.start()
+
+t1.join()
+t2.join()
+t3.join()
 conn.close()
 print("Done")
