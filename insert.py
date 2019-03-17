@@ -3,7 +3,7 @@ import time
 import requests
 import psycopg2
 
-conn = psycopg2.connect(database = "testdb2", user = "postgresql", password = "namespace1", host = "sample-database.czgprnseypbr.us-east-1.rds.amazonaws.com", port = "5432")
+conn = psycopg2.connect(database = "postgres", user = "postgres", password = "namespace1", hostaddr="35.198.246.100", port = "5432")
 print ('Opened database successfully')
 cur = conn.cursor()
 
@@ -374,6 +374,8 @@ def worldWeather(arg):
 
 # main
 metgis(5)
+openWeather(5)
+worldWeather(5)
 # t1 = threading.Thread(target=metgis, args=(1,)) 
 # t2 = threading.Thread(target=openWeather, args=(1,)) 
 # t3 = threading.Thread(target=worldWeather, args=(1,)) 
