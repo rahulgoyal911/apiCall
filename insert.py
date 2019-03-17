@@ -97,7 +97,7 @@ def metgis(arg):
         cur.execute(str1)
         conn.commit()
         print("inserted into metgis")
-        arg=0
+        time.sleep(600)
 
 # metgis function till here
 
@@ -186,7 +186,8 @@ def openWeather(arg):
         conn.commit()
         print("inserted into openweather")
         # print(str1)
-        arg=0
+        # arg=0
+        time.sleep(600)
 
 # open weather till here
 
@@ -370,7 +371,7 @@ def worldWeather(arg):
         conn.commit()
         print("Inserted into worldweather")
         # time.sleep(1)
-        arg=0
+        time.sleep(600)
 
 # worldWeather till here
 
