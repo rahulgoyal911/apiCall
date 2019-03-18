@@ -11,6 +11,8 @@ cur = conn.cursor()
 lat = str(30.739)
 lon = str(30.796)
 alt = str(1000)
+
+
 def truncate(f, n):
     '''Truncates/pads a float f to n decimal places without rounding'''
     s = '{}'.format(f)
@@ -27,26 +29,26 @@ def getCoor(arg):
         templon=""
         tempalt=""
         temppos=""
-        while(arg):
-                ifile  = open('loc1.csv', "r")
-                reader = csv.reader(ifile)
-                rownum = 0
-                for row in reader:
-                        if(row[4]!='Altitude'):
-                                tempalt = str(row[4])
-                                temppos=str(row[3])
-                                temploc = temppos.split(',')
-                                # print(loc)
-                                templat = float(temploc[0])
-                                templon = float(temploc[1])
-                                templat = truncate(lat,3)
-                                templon = truncate(lon,3)
-                                lat = str(tempalt)
-                                lon = str(templon)
-                                alt = str(tempalt)
-                                ifile.close()
-                                print("location done")
-                                time.sleep(600)
+        # while(arg):
+        ifile  = open('loc1.csv', "r")
+        reader = csv.reader(ifile)
+        rownum = 0
+        for row in reader:
+                if(row[4]!='Altitude'):
+                        tempalt = str(row[4])
+                        temppos=str(row[3])
+                        temploc = temppos.split(',')
+                        # print(loc)
+                        templat = float(temploc[0])
+                        templon = float(temploc[1])
+                        templat = truncate(lat,3)
+                        templon = truncate(lon,3)
+                        lat = str(tempalt)
+                        lon = str(templon)
+                        alt = str(tempalt)
+                        ifile.close()
+                        print("location done")
+                        time.sleep(600)
 
 def metgis(arg):
     while(arg):
@@ -422,17 +424,17 @@ def worldWeather(arg):
 # worldWeather till here
 
 # main
-# t4 = threading.Thread(target=getCoor, args=(1,))
+t4 = threading.Thread(target=getCoor, args=(1,))
 t1 = threading.Thread(target=metgis, args=(1,)) 
 t2 = threading.Thread(target=openWeather, args=(1,)) 
 t3 = threading.Thread(target=worldWeather, args=(1,)) 
 
-# t4.start()
+t4.start()
 t1.start() 
 t2.start() 
 t3.start()
 
-# t4.join()
+t4.join()
 t1.join()
 t2.join()
 t3.join()
