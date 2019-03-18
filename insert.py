@@ -45,6 +45,7 @@ def getCoor(arg):
                                 lon = templon
                                 alt = tempalt
                                 ifile.close()
+                                print("location done")
                                 time.sleep(600)
 
 def metgis(arg):
