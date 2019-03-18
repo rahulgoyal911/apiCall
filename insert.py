@@ -43,7 +43,7 @@ def getCoor(arg):
                         templon = float(temploc[1])
                         templat = truncate(lat,3)
                         templon = truncate(lon,3)
-                        lat = str(tempalt)
+                        lat = str(templat)
                         lon = str(templon)
                         alt = str(tempalt)
                         print(lat)
