@@ -41,9 +41,9 @@ def getCoor(arg):
                                 templon = float(temploc[1])
                                 templat = truncate(lat,3)
                                 templon = truncate(lon,3)
-                                lat = tempalt
-                                lon = templon
-                                alt = tempalt
+                                lat = str(tempalt)
+                                lon = str(templon)
+                                alt = str(tempalt)
                                 ifile.close()
                                 print("location done")
                                 time.sleep(600)
