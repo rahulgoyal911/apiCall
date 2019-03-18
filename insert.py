@@ -15,9 +15,9 @@ def metgis(arg):
         alt = 1000
         ver = "sum3"
         url = "https://api.metgis.com/forecast?key="+key+"&lat="+(str)(lat)+"&lon="+(str)(lon)+"&alt="+(str)(alt)+"&v="+ver+"&lang=en"
-
+        # print(url)
         response = requests.get(url)
-
+        # print(response)
         sunrise = response.json().get('sunrise')
         dayCount = response.json().get('dayCount')
         weatherIcon = response.json().get('weatherIcon')
@@ -91,13 +91,14 @@ def metgis(arg):
         # sunset = sunset.replace("'","_")
         # relativeHumidity = relativeHumidity.replace("'","_")
         # forecastShortText = forecastShortText.replace("'","_")
-        
+        # print(sunset)
 
-        str1 = "INSERT INTO METGIS (lat,lon,alt,sunrise,dayCount,weatherIcon,snowfall,unitLin,maxTemp,description,dateRequest,windDir,sunshineDuration,precipitaton,windIcon,windSpeed,lang,rainfall,unitWind,forecastIssued,minTemp,unitTemp,sunset,relativeHumidity,forecastShortText) VALUES('"+str(lat)+"','"+str(lon)+"','"+str(alt)+"','"+str(sunrise[0])+"','"+str(dayCount)+"','"+str(weatherIcon[0)]+"','"+str(snowfall[0])+"','"+str(unitLin)+"','"+str(maxTemp[0])+"','"+str(description)+"','"+str(dateRequest)+"','"+str(windDir[0])+"','"+str(sunshineDuration)+"','"+str(precipitaton[0])+"','"+str(windIcon[0])+"','"+str(windSpeed[0])+"','"+str(lang)+"','"+str(rainfall[0])+"','"+str(unitWind)+"','"+str(forecastIssued)+"','"+str(minTemp[0])+"','"+str(unitTemp)+"','"+str(sunset[0])+"','"+str(relativeHumidity)+"','"+str(forecastShortText[0])+"');"         
+        str1 = "INSERT INTO METGIS (lat,lon,alt,sunrise,dayCount,weatherIcon,snowfall,unitLin,maxTemp,description,dateRequest,windDir,sunshineDuration,precipitaton,windIcon,windSpeed,lang,rainfall,unitWind,forecastIssued,minTemp,unitTemp,sunset,relativeHumidity,forecastShortText) VALUES('"+str(lat)+"','"+str(lon)+"','"+str(alt)+"','"+str(sunrise[0])+"','"+str(dayCount)+"','"+str(weatherIcon[0])+"','"+str(snowfall[0])+"','"+str(unitLin)+"','"+str(maxTemp[0])+"','"+str(description)+"','"+str(dateRequest)+"','"+str(windDir[0])+"','"+str(sunshineDuration)+"','"+str(precipitaton[0])+"','"+str(windIcon[0])+"','"+str(windSpeed[0])+"','"+str(lang)+"','"+str(rainfall[0])+"','"+str(unitWind)+"','"+str(forecastIssued)+"','"+str(minTemp[0])+"','"+str(unitTemp)+"','"+str(sunset[0])+"','"+str(relativeHumidity)+"','"+str(forecastShortText[0])+"');"         
+        print(str1)
         cur.execute(str1)
-        str1 = "INSERT INTO METGIS (lat,lon,alt,sunrise,dayCount,weatherIcon,snowfall,unitLin,maxTemp,description,dateRequest,windDir,sunshineDuration,precipitaton,windIcon,windSpeed,lang,rainfall,unitWind,forecastIssued,minTemp,unitTemp,sunset,relativeHumidity,forecastShortText) VALUES('"+str(lat)+"','"+str(lon)+"','"+str(alt)+"','"+str(sunrise[1])+"','"+str(dayCount)+"','"+str(weatherIcon[1)]+"','"+str(snowfall[1])+"','"+str(unitLin)+"','"+str(maxTemp[1])+"','"+str(description)+"','"+str(dateRequest)+"','"+str(windDir[1])+"','"+str(sunshineDuration)+"','"+str(precipitaton[1])+"','"+str(windIcon[1])+"','"+str(windSpeed[1])+"','"+str(lang)+"','"+str(rainfall[1])+"','"+str(unitWind)+"','"+str(forecastIssued)+"','"+str(minTemp[1])+"','"+str(unitTemp)+"','"+str(sunset[1])+"','"+str(relativeHumidity)+"','"+str(forecastShortText[1])+"');"         
+        str1 = "INSERT INTO METGIS (lat,lon,alt,sunrise,dayCount,weatherIcon,snowfall,unitLin,maxTemp,description,dateRequest,windDir,sunshineDuration,precipitaton,windIcon,windSpeed,lang,rainfall,unitWind,forecastIssued,minTemp,unitTemp,sunset,relativeHumidity,forecastShortText) VALUES('"+str(lat)+"','"+str(lon)+"','"+str(alt)+"','"+str(sunrise[1])+"','"+str(dayCount)+"','"+str(weatherIcon[1])+"','"+str(snowfall[1])+"','"+str(unitLin)+"','"+str(maxTemp[1])+"','"+str(description)+"','"+str(dateRequest)+"','"+str(windDir[1])+"','"+str(sunshineDuration)+"','"+str(precipitaton[1])+"','"+str(windIcon[1])+"','"+str(windSpeed[1])+"','"+str(lang)+"','"+str(rainfall[1])+"','"+str(unitWind)+"','"+str(forecastIssued)+"','"+str(minTemp[1])+"','"+str(unitTemp)+"','"+str(sunset[1])+"','"+str(relativeHumidity)+"','"+str(forecastShortText[1])+"');"         
         cur.execute(str1)
-        str1 = "INSERT INTO METGIS (lat,lon,alt,sunrise,dayCount,weatherIcon,snowfall,unitLin,maxTemp,description,dateRequest,windDir,sunshineDuration,precipitaton,windIcon,windSpeed,lang,rainfall,unitWind,forecastIssued,minTemp,unitTemp,sunset,relativeHumidity,forecastShortText) VALUES('"+str(lat)+"','"+str(lon)+"','"+str(alt)+"','"+str(sunrise[2])+"','"+str(dayCount)+"','"+str(weatherIcon[2)]+"','"+str(snowfall[2])+"','"+str(unitLin)+"','"+str(maxTemp[2])+"','"+str(description)+"','"+str(dateRequest)+"','"+str(windDir[2])+"','"+str(sunshineDuration)+"','"+str(precipitaton[2])+"','"+str(windIcon[2])+"','"+str(windSpeed[2])+"','"+str(lang)+"','"+str(rainfall[2])+"','"+str(unitWind)+"','"+str(forecastIssued)+"','"+str(minTemp[2])+"','"+str(unitTemp)+"','"+str(sunset[2])+"','"+str(relativeHumidity)+"','"+str(forecastShortText[2])+"');"         
+        str1 = "INSERT INTO METGIS (lat,lon,alt,sunrise,dayCount,weatherIcon,snowfall,unitLin,maxTemp,description,dateRequest,windDir,sunshineDuration,precipitaton,windIcon,windSpeed,lang,rainfall,unitWind,forecastIssued,minTemp,unitTemp,sunset,relativeHumidity,forecastShortText) VALUES('"+str(lat)+"','"+str(lon)+"','"+str(alt)+"','"+str(sunrise[2])+"','"+str(dayCount)+"','"+str(weatherIcon[2])+"','"+str(snowfall[2])+"','"+str(unitLin)+"','"+str(maxTemp[2])+"','"+str(description)+"','"+str(dateRequest)+"','"+str(windDir[2])+"','"+str(sunshineDuration)+"','"+str(precipitaton[2])+"','"+str(windIcon[2])+"','"+str(windSpeed[2])+"','"+str(lang)+"','"+str(rainfall[2])+"','"+str(unitWind)+"','"+str(forecastIssued)+"','"+str(minTemp[2])+"','"+str(unitTemp)+"','"+str(sunset[2])+"','"+str(relativeHumidity)+"','"+str(forecastShortText[2])+"');"         
         cur.execute(str1)
         conn.commit()
         print("inserted into metgis")
