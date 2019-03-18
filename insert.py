@@ -6,13 +6,16 @@ import psycopg2
 conn = psycopg2.connect(database = "postgres", user = "postgres", password = "namespace1", hostaddr="35.198.246.100", port = "5432")
 print ('Opened database successfully')
 cur = conn.cursor()
+lat = str(30.739)
+lon = str(30.796)
+alt = str(1000)
 
 def metgis(arg):
     while(arg):
         key = "mD0yVm1yvZ8fdK3dibaZKprTz1rqNm13QECG2j40W4UgMaLB8"
-        lat = 30.7239
-        lon = 76.7896
-        alt = 1000
+        # lat = 30.7239
+        # lon = 76.7896
+        # alt = 1000
         ver = "sum3"
         url = "https://api.metgis.com/forecast?key="+key+"&lat="+(str)(lat)+"&lon="+(str)(lon)+"&alt="+(str)(alt)+"&v="+ver+"&lang=en"
         # print(url)
@@ -109,8 +112,8 @@ def metgis(arg):
 def openWeather(arg):
     while(arg):
         key = "29d82cbfe71ac2746d1af20dffd66b23"
-        lat = str(30.723)
-        lon = str(76.789)
+        # lat = str(30.723)
+        # lon = str(76.789)
         url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID="+key
         url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&APPID="+key
         response = requests.get(url)
@@ -199,8 +202,8 @@ def openWeather(arg):
 def worldWeather(arg):
     while(arg):
         key = "4dddafc191664c47ab1140145191203"
-        lat = 30.723
-        lon = 76.789
+        # lat = 30.723
+        # lon = 76.789
         loc = str(lat)+","+str(lon)
         url = "https://api.worldweatheronline.com/premium/v1/weather.ashx"+"?q="+loc+"&key="+key+"&format=json"
         response = requests.get(url)
@@ -290,8 +293,8 @@ def worldWeather(arg):
             month_absMaxTemp_F = response.json().get("data").get("ClimateAverages")[0].get("month")[month].get("absMaxTemp_F")
             month_avgDailyRainfall = response.json().get("data").get("ClimateAverages")[0].get("month")[month].get("avgDailyRainfall")
         # print(url)
-        lat = str(lat)
-        lon = str(lon)
+        # lat = str(lat)
+        # lon = str(lon)
         types = str(types)
         querys = str(querys)
         observation_time = str(observation_time)
