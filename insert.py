@@ -428,18 +428,20 @@ def worldWeather(arg):
 
 # main
 t4 = threading.Thread(target=getCoor, args=(1,))
-t1 = threading.Thread(target=metgis, args=(1,)) 
-t2 = threading.Thread(target=openWeather, args=(1,)) 
-t3 = threading.Thread(target=worldWeather, args=(1,)) 
-
 t4.start()
-t1.start() 
-t2.start() 
-t3.start()
-
 t4.join()
+t1 = threading.Thread(target=metgis, args=(1,)) 
+t1.start()
 t1.join()
+t2 = threading.Thread(target=openWeather, args=(1,)) 
+t2.start()
 t2.join()
+t3 = threading.Thread(target=worldWeather, args=(1,)) 
+t3.start()
 t3.join()
+
+ 
+ 
+
 conn.close()
 print("Done")
