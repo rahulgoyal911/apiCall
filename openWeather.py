@@ -34,6 +34,8 @@ sunset = response.json().get("sys").get("sunset")
 idn = response.json().get("id")
 name = response.json().get("name")
 
+print(lat)
+print(lon)
 print(id1)
 print(main)
 print(description)

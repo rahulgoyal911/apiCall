@@ -33,7 +33,9 @@ relativeHumidity = response.json().get('relativeHumidity')
 forecastShortText = response.json().get('forecastShortText')
 
 
-
+print(lat)
+print(lon)
+print(alt)
 print(sunrise)
 print(dayCount)
 print(weatherIcon)
