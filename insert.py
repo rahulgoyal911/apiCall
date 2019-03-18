@@ -2,6 +2,8 @@ import threading
 import time
 import requests
 import psycopg2
+import csv
+
 
 conn = psycopg2.connect(database = "postgres", user = "postgres", password = "namespace1", hostaddr="35.198.246.100", port = "5432")
 print ('Opened database successfully')
@@ -9,6 +11,41 @@ cur = conn.cursor()
 lat = str(30.739)
 lon = str(30.796)
 alt = str(1000)
+def truncate(f, n):
+    '''Truncates/pads a float f to n decimal places without rounding'''
+    s = '{}'.format(f)
+    if 'e' in s or 'E' in s:
+        return '{0:.{1}f}'.format(f, n)
+    i, p, d = s.partition('.')
+    return '.'.join([i, (d+'0'*n)[:n]])
+
+def getCoor(arg):
+        global lat
+        global lon
+        global alt
+        templat=""
+        templon=""
+        tempalt=""
+        temppos=""
+        while(arg):
+                ifile  = open('loc1.csv', "r")
+                reader = csv.reader(ifile)
+                rownum = 0
+                for row in reader:
+                        if(row[4]!='Altitude'):
+                                tempalt = str(row[4])
+                                temppos=str(row[3])
+                                temploc = temppos.split(',')
+                                # print(loc)
+                                templat = float(temploc[0])
+                                templon = float(temploc[1])
+                                templat = truncate(lat,3)
+                                templon = truncate(lon,3)
+                                lat = tempalt
+                                lon = templon
+                                alt = tempalt
+                ifile.close()
+                time.sleep(600)
 
 def metgis(arg):
     while(arg):
@@ -384,15 +421,17 @@ def worldWeather(arg):
 # worldWeather till here
 
 # main
-
+t4 = threading.Thread(target=getCoor, args=(1,))
 t1 = threading.Thread(target=metgis, args=(1,)) 
 t2 = threading.Thread(target=openWeather, args=(1,)) 
 t3 = threading.Thread(target=worldWeather, args=(1,)) 
 
+t4.start
 t1.start() 
 t2.start() 
 t3.start()
 
+t4.join()
 t1.join()
 t2.join()
 t3.join()
