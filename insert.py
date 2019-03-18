@@ -49,9 +49,9 @@ def getCoor(arg):
                         print(lat)
                         print(lon)
                         print(alt)
-                        ifile.close()
                         print("location done")
                         time.sleep(600)
+        ifile.close()
 
 def metgis(arg):
     while(arg):
