@@ -238,7 +238,7 @@ def openWeather(arg):
         print("inserted into openweather")
         # print(str1)
         # arg=0
-        time.sleep(600)
+        time.sleep(300)
 
 # open weather till here
 
@@ -422,7 +422,7 @@ def worldWeather(arg):
         conn.commit()
         print("Inserted into worldweather")
         # time.sleep(1)
-        time.sleep(600)
+        time.sleep(300)
 
 # worldWeather till here
 
