@@ -50,7 +50,7 @@ def getCoor(arg):
                         print(lon)
                         print(alt)
                         print("location done")
-                        time.sleep(600)
+                        time.sleep(300)
         ifile.close()
 
 def metgis(arg):
@@ -148,7 +148,7 @@ def metgis(arg):
         cur.execute(str1)
         conn.commit()
         print("inserted into metgis")
-        time.sleep(600)
+        time.sleep(300)
 
 # metgis function till here
 
