@@ -94,6 +94,8 @@ def getCoor(arg):
                                 cur.execute(str1)
                                 conn.commit()
                                 print("inserted into metgis")
+                        else:
+                                print(response.status_code)
 
                         key = "29d82cbfe71ac2746d1af20dffd66b23"
                         # lat = str(30.723)
