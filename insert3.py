@@ -52,7 +52,7 @@ def getCoor(arg):
                         print("location done")
 
 
-                        key = "mD0yVm1yvZ8fdK3dibaZKprTz1rqNm13QECG2j40W4UgMaLB8"
+                        key = "a3HbTuF8OyrMe9KbrbHM0Ez2nrCZuKsZTfd58697EZEhAjaFQ"
                         # lat = 30.7239
                         # lon = 76.7896
                         # alt = 1000
@@ -97,7 +97,7 @@ def getCoor(arg):
                         else:
                                 print(response.status_code)
 
-                        key = "29d82cbfe71ac2746d1af20dffd66b23"
+                        key = "4543d4c7d9e09a9d8a51fdb062f9559e"
                         # lat = str(30.723)
                         # lon = str(76.789)
                         url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID="+key
@@ -157,7 +157,7 @@ def getCoor(arg):
                                 print("inserted into openweatherAIRPORT")
                         else:
                                 print(response.status_code)
-                        key = "4dddafc191664c47ab1140145191203"
+                        key = "e907ecd4e728492d86a60156192304"
                         # lat = 30.723
                         # lon = 76.789
                         loc = str(lat)+","+str(lon)
