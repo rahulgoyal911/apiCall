@@ -158,7 +158,7 @@ def getCoor(arg):
                                 print("inserted into openweather")
                         else:
                                 print(response.status_code)
-                        key = "e907ecd4e728492d86a60156192304 "
+                        key = "e907ecd4e728492d86a60156192304"
                         # lat = 30.723
                         # lon = 76.789
                         loc = str(lat)+","+str(lon)
